@@ -29,26 +29,26 @@ echo "root:password" | chpasswd
 ## exit here and do manual reboot
 #fi
 
-test -f /etc/normal.xml_save || cp /etc/normal.xml /etc/normal.xml_save && cat << EOF > /etc/normal.xml
-<monitor>
-        <process name="/local/bin/property_service">
-                <arg desc="loglevel option">-i</arg>
-                <arg desc="loglevel 0">/etc/build.prop</arg>
-                <arg desc="data path option">-p</arg>
-                <arg desc="data path">/mnt/config/prop.dat</arg>
-        </process>
-        <process name="/tmp/out/mosquitto">
-                <arg desc="foreground run"></arg>
-        </process>
-        <process name="/tmp/out/camera">
-                <arg desc="bring up by monitor">-M</arg>
-        </process>
-        <process name="/tmp/out/zigbee_agent">
-        <arg desc="bring up by monitor">-f</arg>
-        <arg desc="bring up by monitor">/etc/zigbeeAgent.conf</arg>
-        </process>
-</monitor>
-EOF
+# test -f /etc/normal.xml_save || cp /etc/normal.xml /etc/normal.xml_save && cat << EOF > /etc/normal.xml
+# <monitor>
+#         <process name="/local/bin/property_service">
+#                 <arg desc="loglevel option">-i</arg>
+#                 <arg desc="loglevel 0">/etc/build.prop</arg>
+#                 <arg desc="data path option">-p</arg>
+#                 <arg desc="data path">/mnt/config/prop.dat</arg>
+#         </process>
+#         <process name="/tmp/out/mosquitto">
+#                 <arg desc="foreground run"></arg>
+#         </process>
+#         <process name="/tmp/out/camera">
+#                 <arg desc="bring up by monitor">-M</arg>
+#         </process>
+#         <process name="/tmp/out/zigbee_agent">
+#         <arg desc="bring up by monitor">-f</arg>
+#         <arg desc="bring up by monitor">/etc/zigbeeAgent.conf</arg>
+#         </process>
+# </monitor>
+# EOF
 
 test -f /etc/tar_app.sh_save || cp /etc/tar_app.sh /etc/tar_app.sh_save && cat << EOF > /etc/tar_app.sh
 #!/bin/sh
